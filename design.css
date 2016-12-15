@@ -6,10 +6,20 @@ a{text-decoration: none;}
 img{vertical-align: bottom;}
 textarea {resize: none;}
 body {
-	font-family:  "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", Meiryo, sans-serif;
+	font-family:'Helvetica Neue', Helvetica,'Hiragino Kaku Gothic Pro', "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", Meiryo, sans-serif;
 }
-
-
+input:focus{outline:none;}
+textarea:focus{outline:none;}
+textarea{resize:none;}
+:placeholder-shown {color: #c4cbd0;}
+/* Google Chrome, Safari, Opera 15+, Android, iOS */
+::-webkit-input-placeholder{color: #c4cbd0;}
+/* Firefox 18- */
+:-moz-placeholder {color: #c4cbd0;opacity: 1; }
+/* Firefox 19+ */
+::-moz-placeholder{color: #c4cbd0; opacity: 1; }
+/* IE 10+ */
+:-ms-input-placeholder{color: #c4cbd0;}
 /* ヘッダー */
 
 

@@ -1,4 +1,10 @@
 <?php
+  if(!empty($_POST["url"])){
+    $url = htmlspecialchars($_POST["url"]);
+  }
+  if(!empty($_POST["text"])){
+    $text = htmlspecialchars($_POST["text"]);
+  }
   
 ?><!DOCTYPE html>
 <html lang="ja"> 
@@ -30,12 +36,14 @@
       <div style="padding:10px 0px 10px 165px;">
         <div style="padding:0px 10px;">
           <div style="background: #fff;padding:10px;box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.21);">
-            <form action="./http.php" method="post">
-              <p><input type="text" name="name" style="border:1px solid #DEE3E5;height:35px;line-height:35px;font-size:16px;width: 100%;box-sizing: border-box;padding:0px 8px;" placeholder="URL"></p>
-              <p><textarea type="text" name="text" style="border:1px solid #DEE3E5;height:125px;font-size:16px;width: 100%;box-sizing: border-box;padding:8px 8px;margin-top: 10px;" placeholder="name=tomo&age=23"></textarea></p>
-              <div style="padding-top: 3px;">
+            <form action="./index.php" method="post">
+              <p><input type="text" name="url" style="border:1px solid #DEE3E5;height:35px;line-height:35px;font-size:16px;width: 100%;box-sizing: border-box;padding:0px 8px;" placeholder="URL" required></p>
+              <p><textarea type="text" name="text" style="border:1px solid #DEE3E5;height:125px;font-size:16px;width: 100%;box-sizing: border-box;padding:8px 8px;margin-top: 10px;" placeholder="name=tomo&age=23" required></textarea></p>
+              <div style="padding-top: 8px;">
                 <p><input type="submit" value="POST" style="background:none;width:70px;border:1px solid #DEE3E5;border-radius: 50px;text-align: center;height:30px;line-height:23px;font-size:14px;color: #707070;float:left;cursor: pointer;"></p>
-                <p><input type="submit" value="GET" style="background:none;width:70px;border:1px solid #DEE3E5;border-radius: 50px;text-align: center;height:30px;line-height:23px;font-size:14px;color: #707070;float:left;margin-left: 10px;cursor: pointer;"></p>
+                <p><input type="submit" value="GET" style="background:none;width:70px;border:1px solid #DEE3E5;border-radius: 50px;text-align: center;height:30px;line-height:23px;font-size:14px;color: #707070;float:left;margin-left: 5px;cursor: pointer;"></p>
+                <p><input type="submit" value="SAVE" style="width:60px;border:none;border-radius: 50px;text-align: center;height:30px;line-height:25px;font-size:12px;color: #ffffff;float:right;margin-left: 5px;cursor: pointer;background: #b5c6cb;"></p>
+                <p><input type="text" placeholder="save RequestName" style="background:none;width:140px;border:1px solid #DEE3E5;border-radius: 50px;height:28px;line-height:18px;font-size:12px;float:right;margin-left: 5px;padding-left: 10px;"></p>
                 <div class="clear-fix"></div>
               </div>
             </form>
@@ -43,7 +51,7 @@
         </div>
         
         <div style="background: #fff;position: fixed;bottom: 0;width: 100%;border-top: 1px solid #B4BCC1;">
-            <p style="border-top: 1px solid #f1f1f1;"><textarea type="text" name="text" style="border:none;height:125px;font-size:16px;width: 100%;box-sizing: border-box;padding:10px 10px;" placeholder="name=tomo&age=23"></textarea></p>
+            <p style="border-top: 1px solid #f1f1f1;"><textarea type="text" name="text" style="border:none;height:140px;font-size:16px;width: 100%;box-sizing: border-box;padding:10px 10px;" placeholder=""><?php echo json_encode($_REQUEST);?></textarea></p>
         </div>
         
       </div>
