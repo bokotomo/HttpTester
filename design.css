@@ -8,22 +8,49 @@ textarea {resize: none;}
 body {
 	font-family:'Helvetica Neue', Helvetica,'Hiragino Kaku Gothic Pro', "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", Meiryo, sans-serif;
 }
+
+/* default */
 input:focus{outline:none;}
 textarea:focus{outline:none;}
 textarea{resize:none;}
-:placeholder-shown {color: #c4cbd0;}
+:placeholder-shown {color: #c4cbd0;font-weight: 400;}
 /* Google Chrome, Safari, Opera 15+, Android, iOS */
-::-webkit-input-placeholder{color: #c4cbd0;}
+::-webkit-input-placeholder{color: #c4cbd0;font-weight: 400;}
 /* Firefox 18- */
-:-moz-placeholder {color: #c4cbd0;opacity: 1; }
+:-moz-placeholder {color: #c4cbd0;opacity: 1;font-weight: 400;}
 /* Firefox 19+ */
-::-moz-placeholder{color: #c4cbd0; opacity: 1; }
+::-moz-placeholder{color: #c4cbd0;opacity: 1;font-weight: 400;}
 /* IE 10+ */
-:-ms-input-placeholder{color: #c4cbd0;}
-/* ヘッダー */
+:-ms-input-placeholder{color: #c4cbd0;font-weight: 400;}
 
 
+/* header */
+#header{
+  height:50px;line-height:50px;border-bottom: 1px solid #E8E8E8;position: relative;
+}
+.header-title{
+  position: absolute;width:100%;color: #5C9EE9;font-size:20px;text-align: center;font-weight: 400;
+}
+.header-newapp-button{
+  position: absolute;right:10px; background: #36A2F9;font-size: 12px;color:#fff;border-radius: 20px;text-align: center;width:80px;height:30px;line-height:30px;margin-top: 10px;cursor: pointer;
+}
 
+/* sideBar */
+#sidebar{
+  position: absolute;background: #4A586A;width:165px;height:800px;z-index: 3;box-shadow: -2px 2px 3px 0px rgba(0, 0, 0, 0.24) inset;font-size: 14px;
+}
+.sidebar-tag{
+  margin-top: 10px;color:#fff;padding-left:5px;border-radius: 0px 40px 40px 0px / 0px 40px 40px 0px;width:155px;height:35px;line-height:35px;box-sizing: border-box;font-weight: 300;cursor: pointer;
+}
+.sidebar-tag-title{
+  color: #fff;opacity: 0.56;font-weight: 300;margin-top:40px;padding-left:5px;
+}
+.sidebar-tag-on{
+  background: #6B96C3;
+}
+.sidebar-tag-off{
+  background: rgba(217, 235, 240, 0.29);
+}
 
 /*クラス*/
 .clear-fix{clear:both;}

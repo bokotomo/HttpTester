@@ -10,9 +10,7 @@
 <html lang="ja"> 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Title</title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
+<title>HttpTester</title>
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Content-Script-Type" content="text/javascript">
 <meta http-equiv="Content-Style-Type" content="text/css">
@@ -26,12 +24,19 @@
 </head>
 <body>
 <div id="page">
-  <header style="height:50px;line-height:50px;border-bottom: 1px solid #E8E8E8;position: relative;">
-    <h1 style="position: absolute;width:100%;color: #5C9EE9;font-size:20px;text-align: center;">HTTPTESTER</h1>
-    <div style="position: absolute;right:10px; background: #36A2F9;font-size: 12px;color:#fff;border-radius: 20px;text-align: center;width:90px;height:30px;line-height:30px;margin-top: 10px;cursor: pointer;">New App</div>
+  <header id="header">
+    <h1 class="header-title">HTTPTESTER</h1>
+    <div class="header-newapp-button">New App</div>
   </header>
+  
   <div>
-    <div style="position: absolute;background: #75AFE4;width:165px;height:800px;z-index: 3;"></div>
+    <div id="sidebar">
+      <div class="sidebar-tag sidebar-tag-on">Empty</div>
+      <div class="sidebar-tag-title">RequestList</div>
+      <div class="sidebar-tag sidebar-tag-on">Empty</div>
+      <div class="sidebar-tag sidebar-tag-off">test</div>
+    </div>
+
     <div style="position: absolute;background: #F1F4F5;width: 100%;height:800px;z-index: 2;">
       <div style="padding:10px 0px 10px 165px;">
         <div style="padding:0px 10px;">
@@ -51,7 +56,7 @@
         </div>
         
         <div style="background: #fff;position: fixed;bottom: 0;width: 100%;border-top: 1px solid #B4BCC1;">
-            <p style="border-top: 1px solid #f1f1f1;"><textarea type="text" name="text" style="border:none;height:140px;font-size:16px;width: 100%;box-sizing: border-box;padding:10px 10px;" placeholder=""><?php echo json_encode($_REQUEST);?></textarea></p>
+            <p style="border-top: 1px solid #f1f1f1;"><textarea type="text" name="text" style="border:none;height:180px;font-size:16px;width: 100%;box-sizing: border-box;padding:10px 10px;" placeholder=""><?php echo json_encode($_REQUEST);?></textarea></p>
         </div>
         
       </div>
