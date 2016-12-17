@@ -12,6 +12,9 @@ post/get送信をアプリと機能管理できます。
 ## DEMO
 <a href='https://tomo.syo.tokyo/httptester'>https://tomo.syo.tokyo/httptester</a>  
 
+## Getting Started
+  var serverUrl = "Using ServerURL";  
+
 ## Using
 PHP  
 SQLite3  
