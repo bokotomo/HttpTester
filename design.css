@@ -11,6 +11,7 @@ body {
 
 /* default */
 input:focus{outline:none;}
+button:focus{outline:none;}
 textarea:focus{outline:none;}
 textarea{resize:none;}
 :placeholder-shown {color: #c4cbd0;font-weight: 400;}
@@ -29,7 +30,7 @@ textarea{resize:none;}
   height:50px;line-height:50px;border-bottom: 1px solid #E8E8E8;position: relative;
 }
 .header-title{
-  position: absolute;width:100%;color: #5C9EE9;font-size:20px;text-align: center;font-weight: 400;
+  position: absolute;width:165px;color: #5C9EE9;font-size:20px;text-align: center;font-weight: 400;
 }
 .header-newapp-button{
   position: absolute;right:10px; background: #36A2F9;font-size: 12px;color:#fff;border-radius: 20px;text-align: center;width:80px;height:30px;line-height:30px;margin-top: 10px;cursor: pointer;
@@ -37,7 +38,7 @@ textarea{resize:none;}
 
 /* sideBar */
 #sidebar{
-  position: absolute;background: #4A586A;width:165px;height:800px;z-index: 3;box-shadow: -2px 2px 3px 0px rgba(0, 0, 0, 0.24) inset;font-size: 14px;
+  position: absolute;background: #4A586A;width:165px;height:100%;z-index: 3;box-shadow: -2px 2px 3px 0px rgba(0, 0, 0, 0.24) inset;font-size: 14px;
 }
 .sidebar-tag{
   margin-top: 10px;color:#fff;padding-left:5px;border-radius: 0px 40px 40px 0px / 0px 40px 40px 0px;width:155px;height:35px;line-height:35px;box-sizing: border-box;font-weight: 300;cursor: pointer;
@@ -52,15 +53,20 @@ textarea{resize:none;}
   background: rgba(217, 235, 240, 0.29);
 }
 
+/* sideBarRight */
+#sidebar-right{
+  position: absolute;right:0;width: 240px;height:100%;border-left:1px solid #d8d8d8;background: #fff;z-index: 2;padding:10px;box-sizing: border-box;
+}
+
 /* contens */
 #contens{
-  position: absolute;background: #F1F4F5;width: 100%;height:800px;z-index: 2;
+  position: absolute;background: #F1F4F5;width: 100%;height:100%;z-index: 2;
 }
 .contens-in{
-  padding:10px 0px 10px 165px;
+  padding:12px 240px 10px 165px;
 }
 .contens-sendarea-padding{
-  padding:0px 10px;
+  padding:0px 12px;
 }
 .contens-input-text{
   border:1px solid #DEE3E5;height:35px;line-height:35px;font-size:16px;width: 100%;box-sizing: border-box;padding:0px 8px;
@@ -86,10 +92,10 @@ textarea{resize:none;}
 .contens-input-saveinput{
   background:none;width:140px;border:1px solid #DEE3E5;border-radius: 50px;height:28px;line-height:18px;font-size:12px;float:right;margin-left: 5px;padding-left: 10px;
 }
-.contens-logarea{
+#contens-logarea{
   background: #fff;position: fixed;bottom: 0;width: 100%;border-top: 1px solid #B4BCC1;
 }
-.contens-logarea-textarea{
+#contens-logarea-textarea{
   border:none;height:180px;font-size:16px;width: 100%;box-sizing: border-box;padding:10px 10px;
 }
 

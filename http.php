@@ -1,4 +1,7 @@
 <?php
+namespace HttpTester;
+
+use HttpTester;
 
 class HttpSendProvider
 {
