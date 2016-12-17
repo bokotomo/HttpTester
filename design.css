@@ -68,10 +68,10 @@ textarea{resize:none;}
 .contens-sendarea-padding{
   padding:0px 12px;
 }
-.contens-input-text{
+#contens-input-text{
   border:1px solid #DEE3E5;height:35px;line-height:35px;font-size:16px;width: 100%;box-sizing: border-box;padding:0px 8px;
 }
-.contens-input-textarea{
+#contens-input-textarea{
   border:1px solid #DEE3E5;height:125px;font-size:16px;width: 100%;box-sizing: border-box;padding:8px 8px;margin-top: 10px;
 }
 .contens-sendarea{

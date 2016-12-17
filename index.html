@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width">
 <meta http-equiv="Content-Script-Type" content="text/javascript">
 <meta http-equiv="Content-Style-Type" content="text/css">
-<link rel='stylesheet' type='text/css' href='design.css?id=4'>
+<link rel='stylesheet' type='text/css' href='design.css?id=1'>
 <script src="https://fb.me/react-0.13.3.js"></script>
 <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
 <script src="./js/superagent.js"></script>
@@ -86,8 +86,8 @@
         <div className="contens-in">
           <div className="contens-sendarea-padding">
             <div className="contens-sendarea">
-              <p><input type="text" name="url" className="contens-input-text" placeholder="URL" /></p>
-              <p><textarea type="text" name="text" className="contens-input-textarea" placeholder="name=tomo&age=23"></textarea></p>
+              <p><input type="text" name="url" id="contens-input-text" placeholder="URL" /></p>
+              <p><textarea type="text" name="text" id="contens-input-textarea" placeholder="name=tomo&age=23"></textarea></p>
               <div className="contens-input-area">
                 <SendPostButton />
                 <SendGetButton />
@@ -122,25 +122,26 @@
   React.render(<Page />, document.getElementById('react-httptester'));
 
   function sendHttpRequest(type, serverUrl){
-    if(type == "POST"){
-      request
-      .post(serverUrl)
-      .end(function(err, res){
-        console.log(res);
+    var url = document.getElementById("contens-input-text").value;
+    var text = document.getElementById("contens-input-textarea").value;
+    request
+    .post(serverUrl)
+    .type('form')
+    .send({url: url, text: text, type: type})
+    .end(function(err, res){
+      console.log(res);
+      var data = JSON.parse(res.text);
+      if(data.status){
         var elements = document.getElementById("contens-logarea-textarea");
-        elements.innerHTML = res.text;
-      });
-    }else if(type == "GET"){
-      request
-      .get(serverUrl)
-      .end(function(err, res){
-        console.log(res);
-        var elements = document.getElementById("contens-logarea-textarea");
-        elements.innerHTML = res.text;
-      });
-    }else{
-      alert("miss sendType")
-    }
+        if(data.responseData != ""){
+          elements.innerHTML = data.responseData;
+        }else{
+          elements.innerHTML = "Empty data!";
+        }
+      }else{
+        alert("requestError");
+      }
+    });
   }
 </script>
 </head>
