@@ -12,7 +12,7 @@
 <script src="./js/superagent.js"></script>
 <script type="text/jsx">
   var request = window.superagent;
-  var serverUrl = "https://tomo.syo.tokyo/httptester/httptester.php";
+  var serverUrl = "https://tomo.syo.tokyo/httptester/run.php";
   
   var NewAppButton = React.createClass({
     onClick(e) {
@@ -79,6 +79,17 @@
     }
   });
 
+  var SaveRequestButton = React.createClass({
+    onClick(e) {
+      alert("save");
+    },
+    render: function(){
+      return (
+        <p><button onClick={this.onClick} className="contens-input-savebutton">SAVE</button></p>
+      );
+    }
+  });
+
   var Content = React.createClass({
     render: function() {
     return (
@@ -91,7 +102,7 @@
               <div className="contens-input-area">
                 <SendPostButton />
                 <SendGetButton />
-                <p><button className="contens-input-savebutton">SAVE</button></p>
+                <SaveRequestButton />
                 <p><input type="text" placeholder="save RequestName" className="contens-input-saveinput" /></p>
                 <div className="clear-fix"></div>
               </div>
