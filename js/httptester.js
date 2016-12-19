@@ -1,15 +1,78 @@
-var serverUrl = "https://tomo.syo.tokyo/httptester/cgi/run.php";
-runView();
+const serverUrl = "https://tomo.syo.tokyo/httptester/cgi/run.php";
+renderView();
 
-function runView(){
+function renderView(){
   var Page = pageView();
   React.render(<Page />, document.getElementById('react-httptester'));
+}
+
+function modalView(){
+  var CreateAppButton = React.createClass({
+    onClick(e) {
+      var modalAreaInput = document.getElementById("modal-area-input");
+      if(modalAreaInput.value == ""){
+        alert("空です。");
+      }else{
+        alert(modalAreaInput.value);
+      }
+    },
+    render: function(){
+      return (
+        <div onClick={this.onClick} id="modal-area-button">Create App</div>
+      );
+    }
+  });
+
+  var ModalArea = React.createClass({
+    render: function(){
+      return (
+        <div id="modal-area">
+          <div id="modal-area-title">New APP</div>
+          <div id="modal-area-subtitle">アプリごとにリクエストを管理できます</div>
+          <p id="modal-area-input-back"><input id="modal-area-input" placeholder="NewAPPName" /></p>
+          <CreateAppButton />
+        </div>
+      );
+    }
+  });
+
+  var ModalBack = React.createClass({
+    onClick(e) {
+      var modalBack = document.getElementById("modal-back");
+      modalBack.style.display = "none";
+      var modal = document.getElementById("modal");
+      modal.style.display = "none";
+    },
+    render: function(){
+      return (
+        <div onClick={this.onClick} id="modal-back"></div>
+      );
+    }
+  });
+
+  var Modal = React.createClass({
+    render: function() {
+    return (
+      <div>
+        <ModalBack />
+        <div id="modal">
+          <ModalArea />
+        </div>
+      </div>
+    );
+    }
+  });
+
+  return Modal;
 }
 
 function headerView(){
   var NewAppButton = React.createClass({
     onClick(e) {
-      alert("addNewAPP");
+      var modalBack = document.getElementById("modal-back");
+      modalBack.style.display = "block";
+      var modal = document.getElementById("modal");
+      modal.style.display = "block";
     },
     render: function(){
       return (
@@ -28,12 +91,11 @@ function headerView(){
     );
     }
   });
+
   return Header;
 }
 
-function pageView(){
-  var Header = headerView();
-
+function sideBarView(){
   var SideBar = React.createClass({
     render: function() {
     return (
@@ -47,14 +109,10 @@ function pageView(){
     }
   });
 
-  var SideBarRight = React.createClass({
-    render: function() {
-    return (
-      <div id="sidebar-right">user&lsquo;s Log and image</div>
-    );
-    }
-  });
+  return SideBar;
+}
 
+function contentView(){
   var SendPostButton = React.createClass({
     onClick(e) {
       sendHttpRequest("POST", serverUrl);
@@ -116,10 +174,33 @@ function pageView(){
     }
   });
 
+  return Content;
+}
+
+function sideBarRightView(){
+  var SideBarRight = React.createClass({
+    render: function() {
+    return (
+      <div id="sidebar-right">user&lsquo;s Log and image</div>
+    );
+    }
+  });
+
+  return SideBarRight;
+}
+
+function pageView(){
+  var Header = headerView();
+  var Modal = modalView();
+  var SideBar = sideBarView();
+  var SideBarRight = sideBarRightView();
+  var Content = contentView();
+
   var Page = React.createClass({
     render: function() {
     return (
       <div id="page">
+        <Modal />
         <Header />
         <SideBar />
         <Content />
@@ -128,6 +209,7 @@ function pageView(){
     );
     }
   });
+
   return Page;
 }
 

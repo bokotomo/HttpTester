@@ -26,6 +26,32 @@ textarea{resize:none;}
 
 
 /* header */
+#modal-back{
+  width: 100%;position: fixed;height: 100%;z-index: 100;display: none;cursor: pointer;
+}
+#modal{
+  position: fixed;z-index: 101;left: 50%;width: 80%;display: none;
+}
+#modal-area{
+  width: 80%;background: rgba(37, 43, 46, 0.7);height:300px;margin-top:80px;left: -40%;position: absolute;
+}
+#modal-area-title{
+  font-size: 24px;text-align: center;padding-top:40px;color: #fff;
+}
+#modal-area-subtitle{
+  font-size: 24px;text-align: center;padding-top:20px;color: #fff;
+}
+#modal-area-input-back{
+  text-align: center;
+}
+#modal-area-input{
+  margin-top:30px;width: 80%;height:45px;line-height:45px;border:none;font-size: 16px;padding:0px 5px;box-sizing: border-box;
+}
+#modal-area-button{
+  background: #e35656;border-radius: 50px;margin:20px auto 0px;color: #fff;width: 80%;height:45px;line-height:45px;text-align: center;cursor: pointer;
+}
+
+/* header */
 #header{
   height:50px;line-height:50px;border-bottom: 1px solid #E8E8E8;position: relative;
 }
