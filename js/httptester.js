@@ -1,4 +1,6 @@
-const serverUrl = "https://tomo.syo.tokyo/httptester/cgi/run.php";
+const sendHttpRequestUrl = "https://tomo.syo.tokyo/httptester/cgi/send_httprequest.php";
+const getAppListUrl = "https://tomo.syo.tokyo/httptester/cgi/get_applist.php";
+
 renderView();
 
 function renderView(){
@@ -115,7 +117,7 @@ function sideBarView(){
 function contentView(){
   var SendPostButton = React.createClass({
     onClick(e) {
-      sendHttpRequest("POST", serverUrl);
+      sendHttpRequest("POST", sendHttpRequestUrl);
     },
     render: function(){
       return (
@@ -126,7 +128,7 @@ function contentView(){
 
   var SendGetButton = React.createClass({
     onClick(e) {
-      sendHttpRequest("GET", serverUrl);
+      sendHttpRequest("GET", sendHttpRequestUrl);
     },
     render: function(){
       return (
